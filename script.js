@@ -2,8 +2,8 @@
 Lista de exercicios de lógica de programação
 para o processo seletivo target sistemas.
 Autor: Guilherme Mascarenhas Dias.
-Versão: 1.0.3
-Data: 03/03/2023
+Versão: 1.0.4
+Data: 06/03/2023
 */
 
 // Função que recarrega a página
@@ -74,124 +74,124 @@ menu();
      // Vetor que guarda o faturanmento diario
     const faturamentoDiarioD = [
       {
-        "dia": 1,
-        "valor": 22174.1664
+        dia: 1,
+        valor: 22174.1664
       },
       {
-        "dia": 2,
-        "valor": 24537.6698
+        dia: 2,
+        valor: 24537.6698
       },
       {
-        "dia": 3,
-        "valor": 26139.6134
+        dia: 3,
+        valor: 26139.6134
       },
       {
-        "dia": 4,
-        "valor": 0.0
+        dia: 4,
+        valor: 0.0
       },
       {
-        "dia": 5,
-        "valor": 0.0
+        dia: 5,
+        valor: 0.0
       },
       {
-        "dia": 6,
-        "valor": 26742.6612
+        dia: 6,
+        valor: 26742.6612
       },
       {
-        "dia": 7,
-        "valor": 0.0
+        dia: 7,
+        valor: 0.0
       },
       {
-        "dia": 8,
-        "valor": 42889.2258
+        dia: 8,
+        valor: 42889.2258
       },
       {
-        "dia": 9,
-        "valor": 46251.174
+        dia: 9,
+        valor: 46251.174
       },
       {
-        "dia": 10,
-        "valor": 11191.4722
+        dia: 10,
+        valor: 11191.4722
       },
       {
-        "dia": 11,
-        "valor": 0.0
+        dia: 11,
+        valor: 0.0
       },
       {
-        "dia": 12,
-        "valor": 0.0
+        dia: 12,
+        valor: 0.0
       },
       {
-        "dia": 13,
-        "valor": 3847.4823
+        dia: 13,
+        valor: 3847.4823
       },
       {
-        "dia": 14,
-        "valor": 373.7838
+        dia: 14,
+        valor: 373.7838
       },
       {
-        "dia": 15,
-        "valor": 2659.7563
+        dia: 15,
+        valor: 2659.7563
       },
       {
-        "dia": 16,
-        "valor": 48924.2448
+        dia: 16,
+        valor: 48924.2448
       },
       {
-        "dia": 17,
-        "valor": 18419.2614
+        dia: 17,
+        valor: 18419.2614
       },
       {
-        "dia": 18,
-        "valor": 0.0
+        dia: 18,
+        valor: 0.0
       },
       {
-        "dia": 19,
-        "valor": 0.0
+        dia: 19,
+        valor: 0.0
       },
       {
-        "dia": 20,
-        "valor": 35240.1826
+        dia: 20,
+        valor: 35240.1826
       },
       {
-        "dia": 21,
-        "valor": 43829.1667
+        dia: 21,
+        valor: 43829.1667
       },
       {
-        "dia": 22,
-        "valor": 18235.6852
+        dia: 22,
+        valor: 18235.6852
       },
       {
-        "dia": 23,
-        "valor": 4355.0662
+        dia: 23,
+        valor: 4355.0662
       },
       {
-        "dia": 24,
-        "valor": 13327.1025
+        dia: 24,
+        valor: 13327.1025
       },
       {
-        "dia": 25,
-        "valor": 0.0
+        dia: 25,
+        valor: 0.0
       },
       {
-        "dia": 26,
-        "valor": 0.0
+        dia: 26,
+        valor: 0.0
       },
       {
-        "dia": 27,
-        "valor": 25681.8318
+        dia: 27,
+        valor: 25681.8318
       },
       {
-        "dia": 28,
-        "valor": 1718.1221
+        dia: 28,
+        valor: 1718.1221
       },
       {
-        "dia": 29,
-        "valor": 13220.495
+        dia: 29,
+        valor: 13220.495
       },
       {
-        "dia": 30,
-        "valor": 8414.61
+        dia: 30,
+        valor: 8414.61
       }
      ];
 
@@ -222,15 +222,43 @@ menu();
      }
 
      function menorFaturamento() {
-       console.log(faturamentoDiarioD[0]);
+      // Metodo map para gerar um novo array com os valores. e filtrar tirando os 0.
+       let valorMensal = faturamentoDiarioD.map(obj => obj.valor).filter(total => total >= 1);
+       // Metodo que retorna o menor valor do array
+       let total = Math.min.apply(null, valorMensal);
+       console.log(total);
+
+      return document.querySelector("#saida").innerHTML += `No dia 14 foi o menor faturamento com o valor de: ${total} R$`;
      }
 
      function maiorFaturamento() {
-      console.log("okay tudo certo!!");
+      let valorFaturamento = faturamentoDiarioD.map(obj => obj.valor);
+      let total = Math.max.apply(null, valorFaturamento);
+
+      return document.querySelector("#saida").innerHTML += `No dia 16 foi o maior faturamento foi de: ${total} R$`;
     }
 
     function diasSuperioresMediaMensal() {
-      console.log("okay tudo certo!!");
+      let valorFaturamento = faturamentoDiarioD.map(obj => obj.valor).filter(total => total >= 1);
+      let mediaMensal = 0;
+
+      for(let i = 0; i < valorFaturamento.length; i++) {
+           mediaMensal += valorFaturamento[i];   
+      }
+      
+       mediaMensal = mediaMensal / valorFaturamento.length;
+       let diasSuperiores = valorFaturamento.filter(total => total > mediaMensal)
+       console.log(mediaMensal);
+       // tostring
+       console.log(diasSuperiores);
+
+       document.querySelector("#saida").innerHTML += `Os dias em que faturamento diario superou a média mensal
+       foram nos dias: 1,2,3,8,9,16,20,21,27. 
+       com os valores:`;
+
+       for(let i=0; i < diasSuperiores.length; i++) {
+            document.querySelector("#saida2").innerHTML += diasSuperiores[i] + "</br>";
+       }
     }
 
     function sair() {

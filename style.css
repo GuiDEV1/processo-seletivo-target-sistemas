@@ -67,3 +67,7 @@ main p {
     color: #29404c;
 }
 
+#saida2  {
+    color: var(--redLight);
+}
+
