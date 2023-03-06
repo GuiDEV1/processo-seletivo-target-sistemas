@@ -2,7 +2,7 @@
 Lista de exercicios de lógica de programação
 para o processo seletivo target sistemas.
 Autor: Guilherme Mascarenhas Dias.
-Versão: 1.0.4
+Versão: 1.0.5
 Data: 06/03/2023
 */
 
@@ -252,7 +252,7 @@ menu();
        // tostring
        console.log(diasSuperiores);
 
-       document.querySelector("#saida").innerHTML += `Os dias em que faturamento diario superou a média mensal
+       document.querySelector("#saida").innerHTML += `Os dias em que faturamento diario de ${mediaMensal.toFixed(2)} superou a média mensal
        foram nos dias: 1,2,3,8,9,16,20,21,27. 
        com os valores:`;
 
